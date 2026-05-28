@@ -1,82 +1,714 @@
+# RASCO CONTACT HUB — GitHub Pages Website (Design No. 2 EPC Executive Style)
+
+Save this as:
+
+```plaintext
+index.html
+```
+
+inside your GitHub Pages repository.
+
+---
+
+```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<title>RASCO Contact Hub</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Beshir S. Salem | RASCO Contact Hub</title>
+
 <style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
 body{
-font-family:Segoe UI;
-background:#56585C;
-color:white;
+
+font-family:'Segoe UI',Arial,sans-serif;
+background:#E5E7EA;
+color:#1E2328;
+overflow-x:hidden;
+
+}
+
+/* ===================================================== */
+/* MAIN CARD */
+/* ===================================================== */
+
+.main-card{
+
+max-width:1400px;
+margin:30px auto;
+background:#F4F5F7;
+border-radius:28px;
+overflow:hidden;
+box-shadow:
+0 20px 50px rgba(0,0,0,0.18);
+
+display:flex;
+flex-wrap:wrap;
+
+}
+
+/* ===================================================== */
+/* LEFT PANEL */
+/* ===================================================== */
+
+.left-panel{
+
+width:38%;
+min-width:320px;
+position:relative;
+
+background:
+linear-gradient(
+rgba(10,20,30,0.35),
+rgba(10,20,30,0.55)
+),
+
+url('https://thearabweekly.com/sites/default/files/styles/article_image_800x450_/public/2020-08/65-270.jpg?itok=2msLC3uB');
+
+background-size:cover;
+background-position:center;
+
+padding:50px 35px;
+
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+
+}
+
+/* 3D INDUSTRIAL GLASS OVERLAY */
+
+.left-panel::before{
+
+content:'';
+
+position:absolute;
+inset:0;
+
+background:
+linear-gradient(
+135deg,
+rgba(255,255,255,0.12),
+rgba(255,255,255,0.02)
+);
+
+backdrop-filter:blur(3px);
+
+}
+
+/* ===================================================== */
+/* LOGO AREA */
+/* ===================================================== */
+
+.logo-block{
+
+position:relative;
+z-index:2;
 text-align:center;
-padding:30px;
+
 }
-.card{
-background:#6A6D72;
-padding:25px;
+
+.logo-block img{
+
+width:240px;
+max-width:100%;
+
+filter:
+drop-shadow(0 12px 18px rgba(0,0,0,0.45));
+
+}
+
+.company-title{
+
+margin-top:18px;
+
+font-size:38px;
+font-weight:800;
+letter-spacing:1px;
+
+color:#FFFFFF;
+
+text-shadow:
+0 3px 10px rgba(0,0,0,0.45);
+
+}
+
+.company-sub{
+
+margin-top:10px;
+
+font-size:18px;
+line-height:30px;
+font-weight:600;
+
+color:#DDE5E9;
+
+}
+
+.energy{
+
+margin-top:28px;
+
+font-size:18px;
+font-weight:700;
+letter-spacing:5px;
+
+color:#E7C15B;
+
+}
+
+/* ===================================================== */
+/* BOTTOM VALUES */
+/* ===================================================== */
+
+.values{
+
+position:relative;
+z-index:2;
+
+margin-top:60px;
+
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:14px;
+
+}
+
+.value-card{
+
+background:
+linear-gradient(
+145deg,
+rgba(0,85,55,0.88),
+rgba(0,40,30,0.92)
+);
+
+border:1px solid rgba(255,255,255,0.08);
+
+padding:16px;
 border-radius:16px;
-max-width:500px;
-margin:auto;
+
+backdrop-filter:blur(6px);
+
+text-align:center;
+
+box-shadow:
+0 6px 18px rgba(0,0,0,0.25);
+
 }
-a{
-display:block;
-margin:15px;
-padding:15px;
-border-radius:10px;
+
+.value-card h3{
+
+font-size:15px;
+color:#FFFFFF;
+
+margin-top:8px;
+
+}
+
+.value-card p{
+
+font-size:12px;
+margin-top:6px;
+line-height:18px;
+
+color:#BFD8CC;
+
+}
+
+/* ===================================================== */
+/* RIGHT PANEL */
+/* ===================================================== */
+
+.right-panel{
+
+width:62%;
+min-width:340px;
+
+padding:55px 48px;
+
+background:
+
+linear-gradient(
+180deg,
+#F7F8FA,
+#ECEFF2
+);
+
+position:relative;
+
+}
+
+/* ===================================================== */
+/* HEADER */
+/* ===================================================== */
+
+.name{
+
+font-size:58px;
+font-weight:800;
+line-height:64px;
+
+color:#0B5E3C;
+
+}
+
+.title{
+
+margin-top:16px;
+
+font-size:24px;
+font-weight:700;
+
+color:#263038;
+
+}
+
+.plant{
+
+margin-top:14px;
+
+font-size:22px;
+font-weight:600;
+
+color:#49545C;
+
+}
+
+/* ===================================================== */
+/* CONTACT GRID */
+/* ===================================================== */
+
+.contact-grid{
+
+margin-top:40px;
+
+display:grid;
+grid-template-columns:1fr;
+gap:18px;
+
+}
+
+.contact-card{
+
+background:#FFFFFF;
+
+border-radius:18px;
+
+padding:22px 24px;
+
+display:flex;
+align-items:center;
+gap:18px;
+
+box-shadow:
+0 6px 18px rgba(0,0,0,0.08);
+
+transition:0.25s;
+
 text-decoration:none;
-font-weight:bold;
-color:white;
+
 }
-.whatsapp{background:#25D366;}
-.facebook{background:#1877F2;}
-.website{background:#3498DB;}
-.map{background:#E67E22;}
-.email{background:#7F8C8D;}
+
+.contact-card:hover{
+
+transform:translateY(-4px);
+
+box-shadow:
+0 12px 28px rgba(0,0,0,0.12);
+
+}
+
+.icon{
+
+font-size:34px;
+
+width:54px;
+text-align:center;
+
+}
+
+.contact-content h3{
+
+font-size:16px;
+font-weight:700;
+
+color:#5A646B;
+
+}
+
+.contact-content p{
+
+margin-top:6px;
+
+font-size:24px;
+font-weight:700;
+
+color:#005BAA;
+
+word-break:break-word;
+
+}
+
+/* SPECIAL COLORS */
+
+.whatsapp p{
+
+color:#007E33;
+
+}
+
+.map p{
+
+color:#B84D27;
+
+}
+
+.facebook p{
+
+color:#0057B8;
+
+}
+
+/* ===================================================== */
+/* DOWNLOAD BUTTON */
+/* ===================================================== */
+
+.download-zone{
+
+margin-top:40px;
+
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+
+}
+
+.download-btn{
+
+background:
+linear-gradient(
+135deg,
+#0B5E3C,
+#0E7A4F
+);
+
+color:#FFFFFF;
+
+padding:18px 26px;
+
+border-radius:14px;
+
+text-decoration:none;
+
+font-size:18px;
+font-weight:700;
+
+box-shadow:
+0 8px 20px rgba(0,0,0,0.18);
+
+transition:0.25s;
+
+display:inline-flex;
+align-items:center;
+gap:12px;
+
+}
+
+.download-btn:hover{
+
+transform:translateY(-3px);
+
+}
+
+/* ===================================================== */
+/* FOOTER IMAGE */
+/* ===================================================== */
+
+.footer-image{
+
+margin-top:50px;
+
+border-radius:22px;
+overflow:hidden;
+
+box-shadow:
+0 12px 28px rgba(0,0,0,0.14);
+
+}
+
+.footer-image img{
+
+width:100%;
+display:block;
+
+}
+
+/* ===================================================== */
+/* MOBILE */
+/* ===================================================== */
+
+@media(max-width:980px){
+
+.main-card{
+
+flex-direction:column;
+
+}
+
+.left-panel,
+.right-panel{
+
+width:100%;
+
+}
+
+.name{
+
+font-size:42px;
+line-height:50px;
+
+}
+
+.title{
+
+font-size:20px;
+
+}
+
+.plant{
+
+font-size:18px;
+
+}
+
+.contact-content p{
+
+font-size:18px;
+
+}
+
+}
+
 </style>
+
 </head>
 
 <body>
 
-<div class="card">
+<div class="main-card">
 
-<h1>RASCO</h1>
+<!-- ===================================================== -->
+<!-- LEFT PANEL -->
+<!-- ===================================================== -->
 
-<h2>Beshir S. Salem</h2>
+<div class="left-panel">
 
-<p>
-Instrumentation & Control Division Head (Acting)
-</p>
+<div class="logo-block">
 
-<p>
-Ethylene Production Plant
-</p>
+<img
+src="https://raw.githubusercontent.com/beshirssalem-commits/rasco-signature-images/refs/heads/main/RASCO.png"
+alt="RASCO Logo">
 
-<a class="whatsapp"
-href="https://wa.me/218914860116">
-Chat on WhatsApp
-</a>
+<div class="company-title">
 
-<a class="facebook"
-href="https://www.facebook.com/raslanufcompany/">
-RASCO on Facebook
-</a>
+RASCO
 
-<a class="website"
-href="https://raslanuf.ly/en/home/">
-RASCO Website
-</a>
+</div>
 
-<a class="map"
-href="https://maps.app.goo.gl/MDhiyePByczoVtNz9">
-Raslanuf on Map
-</a>
+<div class="company-sub">
 
-<a class="email"
+RAS LANUF OIL & GAS<br>
+PROCESSING COMPANY
+
+</div>
+
+<div class="energy">
+
+ENERGY FOR LIBYA
+
+</div>
+
+</div>
+
+<!-- VALUES -->
+
+<div class="values">
+
+<div class="value-card">
+<h3>🛡 Safety</h3>
+<p>Operational discipline and personnel protection.</p>
+</div>
+
+<div class="value-card">
+<h3>⚙ Reliability</h3>
+<p>Continuous process availability and performance.</p>
+</div>
+
+<div class="value-card">
+<h3>🤝 Integrity</h3>
+<p>Professional ethics and technical accountability.</p>
+</div>
+
+<div class="value-card">
+<h3>⭐ Excellence</h3>
+<p>Commitment to engineering quality and innovation.</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- ===================================================== -->
+<!-- RIGHT PANEL -->
+<!-- ===================================================== -->
+
+<div class="right-panel">
+
+<div class="name">
+
+Beshir S. Salem
+
+</div>
+
+<div class="title">
+
+📈 Instrumentation & Control Division Head/ACT
+
+</div>
+
+<div class="plant">
+
+🏭 Ethylene Production Plant
+
+</div>
+
+<!-- CONTACTS -->
+
+<div class="contact-grid">
+
+<a class="contact-card"
 href="mailto:beshir8147@raslanuf.ly">
-Send Email
+
+<div class="icon">📧</div>
+
+<div class="contact-content">
+<h3>Email</h3>
+<p>beshir8147@raslanuf.ly</p>
+</div>
+
 </a>
+
+<div class="contact-card">
+
+<div class="icon">☎️</div>
+
+<div class="contact-content">
+<h3>Internal Phone</h3>
+<p>21596 / 21703</p>
+</div>
+
+</div>
+
+<a class="contact-card"
+href="tel:+218914860116">
+
+<div class="icon">📱</div>
+
+<div class="contact-content">
+<h3>Mobile</h3>
+<p>+218 91 4860116</p>
+</div>
+
+</a>
+
+<a class="contact-card whatsapp"
+href="https://wa.me/218914860116">
+
+<div class="icon">🟢</div>
+
+<div class="contact-content">
+<h3>WhatsApp</h3>
+<p>Chat on WhatsApp</p>
+</div>
+
+</a>
+
+<a class="contact-card"
+href="https://raslanuf.ly/en/home/">
+
+<div class="icon">🌐</div>
+
+<div class="contact-content">
+<h3>Official Website</h3>
+<p>Visit RASCO Website</p>
+</div>
+
+</a>
+
+<a class="contact-card facebook"
+href="https://www.facebook.com/raslanufcompany/">
+
+<div class="icon">🔵</div>
+
+<div class="contact-content">
+<h3>Facebook</h3>
+<p>Visit RASCO Facebook</p>
+</div>
+
+</a>
+
+<a class="contact-card map"
+href="https://maps.app.goo.gl/MDhiyePByczoVtNz9">
+
+<div class="icon">📍</div>
+
+<div class="contact-content">
+<h3>Location</h3>
+<p>Open RASCO Location</p>
+</div>
+
+</a>
+
+</div>
+
+<!-- DOWNLOAD -->
+
+<div class="download-zone">
+
+<a class="download-btn"
+href="#"
+onclick="window.print()">
+
+⬇ Download Contact Card PDF
+
+</a>
+
+</div>
+
+<!-- FOOTER IMAGE -->
+
+<div class="footer-image">
+
+<img
+src="https://prod.cdn-medias.theafricareport.com/cdn-cgi/image/q=auto,f=auto,metadata=none,fit=cover/https://prod.cdn-medias.theafricareport.com/medias/2021/08/RTX7QFNR.jpg">
+
+</div>
+
+</div>
 
 </div>
 
 </body>
 </html>
+```

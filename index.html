@@ -13,13 +13,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-<!-- ===================================================== -->
-<!-- PDF LIBRARIES -->
-<!-- ===================================================== -->
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
 <style>
 
@@ -60,7 +54,7 @@ background:#071018;
 }
 
 /* ===================================================== */
-/* MAIN BACKGROUND */
+/* BACKGROUND */
 /* ===================================================== */
 
 body::before{
@@ -97,7 +91,7 @@ transform:scale(1.01);
 }
 
 /* ===================================================== */
-/* INDUSTRIAL LIGHTING */
+/* OVERLAY */
 /* ===================================================== */
 
 body::after{
@@ -164,7 +158,7 @@ transform:translateY(-120px);
 }
 
 /* ===================================================== */
-/* LARGE BACKGROUND LOGO */
+/* BACKGROUND LOGO */
 /* ===================================================== */
 
 .logo-bg{
@@ -185,24 +179,6 @@ z-index:-2;
 
 filter:
 drop-shadow(0 0 80px rgba(0,0,0,0.55));
-
-animation:floatLogo 8s ease-in-out infinite;
-
-}
-
-@keyframes floatLogo{
-
-0%{
-transform:translate(-50%,-50%);
-}
-
-50%{
-transform:translate(-50%,-53%);
-}
-
-100%{
-transform:translate(-50%,-50%);
-}
 
 }
 
@@ -275,10 +251,6 @@ margin-bottom:42px;
 
 }
 
-/* ===================================================== */
-/* HEADER BRAND */
-/* ===================================================== */
-
 .header-brand{
 
 display:flex;
@@ -293,10 +265,6 @@ flex-wrap:wrap;
 
 }
 
-/* ===================================================== */
-/* MINI LOGO */
-/* ===================================================== */
-
 .header-mini-logo{
 
 width:60px;
@@ -305,10 +273,6 @@ height:60px;
 object-fit:contain;
 
 }
-
-/* ===================================================== */
-/* MAIN LOGO */
-/* ===================================================== */
 
 .small-logo{
 
@@ -319,10 +283,6 @@ drop-shadow(0 0 25px rgba(255,215,120,0.28))
 drop-shadow(0 12px 35px rgba(0,0,0,0.45));
 
 }
-
-/* ===================================================== */
-/* NAME */
-/* ===================================================== */
 
 .name{
 
@@ -341,10 +301,6 @@ text-shadow:
 
 }
 
-/* ===================================================== */
-/* POSITION */
-/* ===================================================== */
-
 .position{
 
 margin-top:18px;
@@ -359,10 +315,6 @@ color:#DCE5EA;
 
 }
 
-/* ===================================================== */
-/* COMPANY */
-/* ===================================================== */
-
 .company{
 
 font-size:14px;
@@ -376,10 +328,6 @@ text-transform:uppercase;
 color:#E8C96C;
 
 }
-
-/* ===================================================== */
-/* GOLD LINE */
-/* ===================================================== */
 
 .gold-line{
 
@@ -450,43 +398,7 @@ backdrop-filter:blur(8px);
 
 min-height:110px;
 
-}
-
-/* ===================================================== */
-/* CARD SHINE */
-/* ===================================================== */
-
-.contact-card::before{
-
-content:"";
-
-position:absolute;
-
-top:-100%;
-left:-100%;
-
-width:220%;
-height:220%;
-
-background:
-
-linear-gradient(
-135deg,
-transparent,
-rgba(255,255,255,0.06),
-transparent
-);
-
-transform:rotate(15deg);
-
-transition:0.6s;
-
-}
-
-.contact-card:hover::before{
-
-top:-20%;
-left:-20%;
+color:#FFFFFF;
 
 }
 
@@ -501,10 +413,6 @@ box-shadow:
 0 20px 40px rgba(0,0,0,0.22);
 
 }
-
-/* ===================================================== */
-/* ICON */
-/* ===================================================== */
 
 .icon{
 
@@ -534,10 +442,6 @@ flex-shrink:0;
 
 }
 
-/* ===================================================== */
-/* LABEL */
-/* ===================================================== */
-
 .label{
 
 font-size:12px;
@@ -551,10 +455,6 @@ text-transform:uppercase;
 color:#A8B7C0;
 
 }
-
-/* ===================================================== */
-/* VALUE */
-/* ===================================================== */
 
 .value{
 
@@ -589,10 +489,6 @@ justify-content:center;
 
 }
 
-/* ===================================================== */
-/* BUTTON */
-/* ===================================================== */
-
 .btn{
 
 display:inline-flex;
@@ -619,10 +515,6 @@ border:none;
 
 }
 
-/* ===================================================== */
-/* PRIMARY BUTTON */
-/* ===================================================== */
-
 .btn-primary{
 
 background:
@@ -646,10 +538,6 @@ transform:translateY(-4px) scale(1.02);
 
 }
 
-/* ===================================================== */
-/* SECONDARY BUTTON */
-/* ===================================================== */
-
 .btn-secondary{
 
 background:
@@ -661,17 +549,6 @@ border:
 color:#FFFFFF;
 
 }
-
-.btn-secondary:hover{
-
-background:
-rgba(255,255,255,0.14);
-
-}
-
-/* ===================================================== */
-/* FOOTER */
-/* ===================================================== */
 
 .footer{
 
@@ -701,15 +578,6 @@ align-items:flex-start;
 
 }
 
-body::before{
-
-filter:
-brightness(1.22)
-contrast(1.08)
-saturate(1.10);
-
-}
-
 .container{
 
 padding:24px 18px;
@@ -719,15 +587,31 @@ border-radius:24px;
 background:
 rgba(6,14,20,0.42);
 
-backdrop-filter:blur(8px);
+}
+
+.contact-list{
+
+grid-template-columns:1fr;
 
 }
 
-.header-brand{
+.name{
 
-flex-direction:column;
+font-size:38px;
 
-gap:12px;
+}
+
+.position{
+
+font-size:16px;
+
+}
+
+.company{
+
+font-size:11px;
+
+letter-spacing:2px;
 
 }
 
@@ -744,104 +628,15 @@ height:44px;
 
 }
 
-.name{
+.btn{
 
-font-size:38px;
-
-line-height:1.05;
-
-letter-spacing:-1px;
-
-}
-
-.position{
-
-font-size:16px;
-
-line-height:1.4;
-
-}
-
-.company{
-
-font-size:11px;
-
-letter-spacing:2px;
-
-line-height:1.6;
-
-text-align:center;
-
-}
-
-.contact-list{
-
-grid-template-columns:1fr;
-
-gap:14px;
-
-}
-
-.contact-card{
-
-padding:18px;
-
-min-height:auto;
-
-border-radius:20px;
-
-}
-
-.icon{
-
-width:52px;
-height:52px;
-
-font-size:22px;
-
-}
-
-.value{
-
-font-size:16px;
-
-line-height:1.4;
+width:100%;
 
 }
 
 .button-row{
 
 flex-direction:column;
-
-gap:14px;
-
-}
-
-.btn{
-
-width:100%;
-
-padding:16px;
-
-font-size:15px;
-
-}
-
-.logo-bg{
-
-width:130vw;
-
-opacity:0.04;
-
-}
-
-.footer{
-
-font-size:11px;
-
-line-height:1.5;
-
-margin-top:28px;
 
 }
 
@@ -947,7 +742,8 @@ href="tel:+218914860116">
 </a>
 
 <a class="contact-card"
-href="https://wa.me/218914860116">
+href="https://wa.me/218914860116"
+target="_blank">
 
 <div class="icon">🟢</div>
 
@@ -964,7 +760,8 @@ Chat on WhatsApp
 </a>
 
 <a class="contact-card"
-href="https://raslanuf.ly/en/home/">
+href="https://raslanuf.ly/en/home/"
+target="_blank">
 
 <div class="icon">🌐</div>
 
@@ -981,7 +778,8 @@ Official Company Website
 </a>
 
 <a class="contact-card"
-href="https://www.facebook.com/raslanufcompany/">
+href="https://www.facebook.com/raslanufcompany/"
+target="_blank">
 
 <div class="icon">🔵</div>
 
@@ -998,7 +796,8 @@ RASCO Official Facebook
 </a>
 
 <a class="contact-card"
-href="https://maps.app.goo.gl/MDhiyePByczoVtNz9">
+href="https://maps.app.goo.gl/MDhiyePByczoVtNz9"
+target="_blank">
 
 <div class="icon">📍</div>
 
@@ -1047,215 +846,180 @@ RASCO Executive Engineering Contact Hub • Libya
 
 <script>
 
-/* ===================================================== */
-/* DIRECT PDF EXPORT */
-/* ===================================================== */
-
 async function downloadPDF(){
-
-const exportDiv=document.createElement('div');
-
-exportDiv.style.width='900px';
-
-exportDiv.style.padding='40px';
-
-exportDiv.style.background='#FFFFFF';
-
-exportDiv.style.fontFamily='Arial,sans-serif';
-
-exportDiv.innerHTML=`
-
-<div style="text-align:center;margin-bottom:35px;">
-
-<img
-src="https://github.com/beshirssalem-commits/rasco-signature-images/blob/main/ChatGPT%20Image%2029%20%D9%85%D8%A7%D9%8A%D9%88%202026%D8%8C%2001_50_09%20%D8%B5.png?raw=true"
-style="width:120px;margin-bottom:18px;">
-
-<div style="
-font-size:42px;
-font-weight:bold;
-color:#111111;
-margin-bottom:10px;
-">
-
-Beshir S. Salem
-
-</div>
-
-<div style="
-font-size:20px;
-color:#333333;
-margin-bottom:18px;
-">
-
-Instrumentation & Control Division Head / ACT
-
-</div>
-
-<div style="
-font-size:13px;
-letter-spacing:3px;
-color:#9B7A1D;
-margin-bottom:20px;
-">
-
-RAS LANUF OIL & GAS PROCESSING COMPANY
-
-</div>
-
-<div style="
-width:180px;
-height:4px;
-margin:0 auto;
-border-radius:999px;
-background:linear-gradient(90deg,#C99728,#F2D17C);
-"></div>
-
-</div>
-
-<div style="
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:16px;
-">
-
-${createCard('Email','beshir8147@raslanuf.ly')}
-${createCard('Internal Phone','21596 / 21703')}
-${createCard('Mobile','+218 91 4860116')}
-${createCard('WhatsApp','Chat on WhatsApp')}
-${createCard('Website','Official Company Website')}
-${createCard('Facebook','RASCO Official Facebook')}
-${createCard('Location','Open Refinery Location')}
-
-</div>
-
-<div style="
-margin-top:35px;
-font-size:11px;
-text-align:center;
-color:#777777;
-">
-
-RASCO Executive Engineering Contact Hub • Libya
-
-</div>
-
-`;
-
-exportDiv.style.position='fixed';
-exportDiv.style.left='-99999px';
-
-document.body.appendChild(exportDiv);
-
-/* ===================================================== */
-/* RENDER TO CANVAS */
-/* ===================================================== */
-
-const canvas=await html2canvas(exportDiv,{
-
-scale:3,
-backgroundColor:'#FFFFFF',
-useCORS:true
-
-});
-
-/* ===================================================== */
-/* CREATE PDF */
-/* ===================================================== */
 
 const { jsPDF } = window.jspdf;
 
 const pdf=new jsPDF({
-
 orientation:'portrait',
 unit:'pt',
 format:'a4'
-
 });
 
-const pdfWidth=595.28;
-
-const imgWidth=pdfWidth-40;
-
-const imgHeight=canvas.height*imgWidth/canvas.width;
-
 /* ===================================================== */
-/* ADD IMAGE */
+/* HEADER */
 /* ===================================================== */
+
+pdf.setFont("helvetica","bold");
 
 pdf.addImage(
+'https://github.com/beshirssalem-commits/rasco-signature-images/blob/main/ChatGPT%20Image%2029%20%D9%85%D8%A7%D9%8A%D9%88%202026%D8%8C%2001_50_09%20%D8%B5.png?raw=true',
+'PNG',
+240,
+25,
+110,
+110
+);
 
-canvas.toDataURL('image/jpeg',1.0),
-'JPEG',
-20,
-20,
-imgWidth,
-imgHeight
+pdf.setFontSize(28);
 
+pdf.text('Beshir S. Salem',297,165,{align:'center'});
+
+pdf.setFontSize(14);
+
+pdf.setTextColor(60);
+
+pdf.text('Instrumentation Division Head / ACT',297,190,{align:'center'});
+
+pdf.setFontSize(11);
+
+pdf.setTextColor(156,122,29);
+
+pdf.text(
+'RAS LANUF OIL & GAS PROCESSING COMPANY',
+297,
+210,
+{align:'center'}
 );
 
 /* ===================================================== */
-/* SAVE DIRECTLY */
+/* GOLD LINE */
 /* ===================================================== */
 
-pdf.save('RASCO_Executive_Contact.pdf');
+pdf.setDrawColor(201,151,40);
+
+pdf.setLineWidth(2);
+
+pdf.line(210,225,385,225);
 
 /* ===================================================== */
-/* CLEANUP */
+/* CARDS */
 /* ===================================================== */
 
-document.body.removeChild(exportDiv);
+const cards=[
+
+{
+title:'Email',
+value:'beshir8147@raslanuf.ly',
+link:'mailto:beshir8147@raslanuf.ly'
+},
+
+{
+title:'Internal Phone',
+value:'21596 / 21703'
+},
+
+{
+title:'Mobile',
+value:'+218 91 4860116',
+link:'tel:+218914860116'
+},
+
+{
+title:'WhatsApp',
+value:'Chat on WhatsApp',
+link:'https://wa.me/218914860116'
+},
+
+{
+title:'Website',
+value:'Official Company Website',
+link:'https://raslanuf.ly/en/home/'
+},
+
+{
+title:'Facebook',
+value:'RASCO Official Facebook',
+link:'https://www.facebook.com/raslanufcompany/'
+},
+
+{
+title:'Location',
+value:'Open Company Location',
+link:'https://maps.app.goo.gl/MDhiyePByczoVtNz9'
+}
+
+];
+
+let x=40;
+let y=260;
+
+cards.forEach((card,index)=>{
+
+pdf.setFillColor(247,249,251);
+
+pdf.setDrawColor(220,225,230);
+
+pdf.roundedRect(x,y,245,70,8,8,'FD');
+
+pdf.setFontSize(9);
+
+pdf.setTextColor(100);
+
+pdf.text(card.title.toUpperCase(),x+15,y+18);
+
+pdf.setFontSize(13);
+
+pdf.setTextColor(20);
+
+pdf.text(card.value,x+15,y+42);
+
+if(card.link){
+
+pdf.link(x+15,y+28,180,20,{
+url:card.link
+});
 
 }
 
+if(index%2===0){
+
+x=310;
+
+}else{
+
+x=40;
+y+=90;
+
+}
+
+});
+
 /* ===================================================== */
-/* CARD TEMPLATE */
+/* FOOTER */
 /* ===================================================== */
 
-function createCard(label,value){
+pdf.setFontSize(10);
 
-return `
+pdf.setTextColor(120);
 
-<div style="
-border:1px solid #D9E2E8;
-border-radius:18px;
-padding:18px;
-background:#F7F9FB;
-min-height:95px;
-">
+pdf.text(
+'RASCO Executive Engineering Contact Hub • Libya',
+297,
+780,
+{align:'center'}
+);
 
-<div style="
-font-size:11px;
-font-weight:bold;
-letter-spacing:1px;
-text-transform:uppercase;
-color:#66737C;
-margin-bottom:8px;
-">
+/* ===================================================== */
+/* SAVE */
+/* ===================================================== */
 
-${label}
-
-</div>
-
-<div style="
-font-size:18px;
-font-weight:bold;
-line-height:1.5;
-color:#111111;
-word-break:break-word;
-">
-
-${value}
-
-</div>
-
-</div>
-
-`;
+pdf.save('RASCO_Executive_Contact.pdf');
 
 }
 
 </script>
 
 </body>
+
 </html>

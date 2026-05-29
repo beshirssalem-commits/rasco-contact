@@ -846,40 +846,105 @@ RASCO Executive Engineering Contact Hub • Libya
 
 <script>
 
+/* ===================================================== */
+/* LOAD IMAGE */
+/* ===================================================== */
+
+async function loadImageAsBase64(url){
+
+return new Promise((resolve,reject)=>{
+
+const img=new Image();
+
+img.crossOrigin='anonymous';
+
+img.onload=function(){
+
+const canvas=document.createElement('canvas');
+
+canvas.width=img.width;
+canvas.height=img.height;
+
+const ctx=canvas.getContext('2d');
+
+ctx.drawImage(img,0,0);
+
+resolve(canvas.toDataURL('image/png'));
+
+};
+
+img.onerror=reject;
+
+img.src=url;
+
+});
+
+}
+
+/* ===================================================== */
+/* EXPORT PDF */
+/* ===================================================== */
+
 async function downloadPDF(){
 
 const { jsPDF } = window.jspdf;
 
 const pdf=new jsPDF({
+
 orientation:'portrait',
 unit:'pt',
 format:'a4'
+
 });
+
+/* ===================================================== */
+/* LOAD LOGO */
+/* ===================================================== */
+
+const logo=await loadImageAsBase64(
+'https://github.com/beshirssalem-commits/rasco-signature-images/blob/main/ChatGPT%20Image%2029%20%D9%85%D8%A7%D9%8A%D9%88%202026%D8%8C%2001_50_09%20%D8%B5.png?raw=true'
+);
+
+/* ===================================================== */
+/* ADD LOGO */
+/* ===================================================== */
+
+pdf.addImage(
+logo,
+'PNG',
+242,
+28,
+110,
+110
+);
 
 /* ===================================================== */
 /* HEADER */
 /* ===================================================== */
 
-pdf.setFont("helvetica","bold");
-
-pdf.addImage(
-'https://github.com/beshirssalem-commits/rasco-signature-images/blob/main/ChatGPT%20Image%2029%20%D9%85%D8%A7%D9%8A%D9%88%202026%D8%8C%2001_50_09%20%D8%B5.png?raw=true',
-'PNG',
-240,
-25,
-110,
-110
-);
+pdf.setFont('helvetica','bold');
 
 pdf.setFontSize(28);
 
-pdf.text('Beshir S. Salem',297,165,{align:'center'});
+pdf.setTextColor(20);
+
+pdf.text(
+'Beshir S. Salem',
+297,
+168,
+{align:'center'}
+);
 
 pdf.setFontSize(14);
 
-pdf.setTextColor(60);
+pdf.setTextColor(70);
 
-pdf.text('Instrumentation Division Head / ACT',297,190,{align:'center'});
+pdf.text(
+'Instrumentation Division Head / ACT',
+297,
+192,
+{align:'center'}
+);
 
 pdf.setFontSize(11);
 
@@ -888,7 +953,7 @@ pdf.setTextColor(156,122,29);
 pdf.text(
 'RAS LANUF OIL & GAS PROCESSING COMPANY',
 297,
-210,
+214,
 {align:'center'}
 );
 
@@ -900,51 +965,51 @@ pdf.setDrawColor(201,151,40);
 
 pdf.setLineWidth(2);
 
-pdf.line(210,225,385,225);
+pdf.line(205,228,390,228);
 
 /* ===================================================== */
-/* CARDS */
+/* CONTACTS */
 /* ===================================================== */
 
 const cards=[
 
 {
-title:'Email',
+title:'EMAIL',
 value:'beshir8147@raslanuf.ly',
 link:'mailto:beshir8147@raslanuf.ly'
 },
 
 {
-title:'Internal Phone',
+title:'INTERNAL PHONE',
 value:'21596 / 21703'
 },
 
 {
-title:'Mobile',
+title:'MOBILE',
 value:'+218 91 4860116',
 link:'tel:+218914860116'
 },
 
 {
-title:'WhatsApp',
+title:'WHATSAPP',
 value:'Chat on WhatsApp',
 link:'https://wa.me/218914860116'
 },
 
 {
-title:'Website',
+title:'WEBSITE',
 value:'Official Company Website',
 link:'https://raslanuf.ly/en/home/'
 },
 
 {
-title:'Facebook',
+title:'FACEBOOK',
 value:'RASCO Official Facebook',
 link:'https://www.facebook.com/raslanufcompany/'
 },
 
 {
-title:'Location',
+title:'LOCATION',
 value:'Open Company Location',
 link:'https://maps.app.goo.gl/MDhiyePByczoVtNz9'
 }
@@ -960,25 +1025,49 @@ pdf.setFillColor(247,249,251);
 
 pdf.setDrawColor(220,225,230);
 
-pdf.roundedRect(x,y,245,70,8,8,'FD');
+pdf.roundedRect(
+x,
+y,
+245,
+74,
+10,
+10,
+'FD'
+);
+
+pdf.setFont('helvetica','bold');
 
 pdf.setFontSize(9);
 
 pdf.setTextColor(100);
 
-pdf.text(card.title.toUpperCase(),x+15,y+18);
+pdf.text(
+card.title,
+x+15,
+y+18
+);
 
 pdf.setFontSize(13);
 
 pdf.setTextColor(20);
 
-pdf.text(card.value,x+15,y+42);
+pdf.text(
+card.value,
+x+15,
+y+44
+);
 
 if(card.link){
 
-pdf.link(x+15,y+28,180,20,{
+pdf.link(
+x+10,
+y+10,
+220,
+50,
+{
 url:card.link
-});
+}
+);
 
 }
 
@@ -989,7 +1078,7 @@ x=310;
 }else{
 
 x=40;
-y+=90;
+y+=92;
 
 }
 
@@ -1006,7 +1095,7 @@ pdf.setTextColor(120);
 pdf.text(
 'RASCO Executive Engineering Contact Hub • Libya',
 297,
-780,
+790,
 {align:'center'}
 );
 
@@ -1021,5 +1110,4 @@ pdf.save('RASCO_Executive_Contact.pdf');
 </script>
 
 </body>
-
 </html>

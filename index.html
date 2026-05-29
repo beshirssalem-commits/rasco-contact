@@ -13,6 +13,14 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+<!-- ===================================================== -->
+<!-- PDF LIBRARIES -->
+<!-- ===================================================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
 <style>
 
 /* ===================================================== */
@@ -76,8 +84,6 @@ url('https://github.com/beshirssalem-commits/rasco-signature-images/blob/main/29
 background-size:cover;
 background-position:center center;
 background-repeat:no-repeat;
-
-/* MUCH CLEARER */
 
 filter:
 brightness(1.30)
@@ -854,7 +860,7 @@ class="logo-bg"
 src="https://github.com/beshirssalem-commits/rasco-signature-images/blob/main/ChatGPT%20Image%2029%20%D9%85%D8%A7%D9%8A%D9%88%202026%D8%8C%2001_50_09%20%D8%B5.png?raw=true"
 alt="RASCO Logo">
 
-<div class="container" id="contact-page">
+<div class="container">
 
 <div class="top">
 
@@ -1041,328 +1047,215 @@ RASCO Executive Engineering Contact Hub • Libya
 
 <script>
 
-function downloadPDF(){
+/* ===================================================== */
+/* DIRECT PDF EXPORT */
+/* ===================================================== */
 
-const printWindow=window.open('', '_blank');
+async function downloadPDF(){
 
-const content=`
+const exportDiv=document.createElement('div');
 
-<!DOCTYPE html>
+exportDiv.style.width='900px';
 
-<html>
+exportDiv.style.padding='40px';
 
-<head>
+exportDiv.style.background='#FFFFFF';
 
-<title>RASCO Executive Contact</title>
+exportDiv.style.fontFamily='Arial,sans-serif';
 
-<style>
+exportDiv.innerHTML=`
 
-body{
-
-font-family:Arial,sans-serif;
-
-padding:40px;
-
-color:#111111;
-
-background:#FFFFFF;
-
-}
-
-.header{
-
-text-align:center;
-
-margin-bottom:35px;
-
-}
-
-.logo{
-
-width:120px;
-
-margin-bottom:18px;
-
-}
-
-.name{
-
-font-size:42px;
-
-font-weight:bold;
-
-margin-bottom:10px;
-
-}
-
-.position{
-
-font-size:20px;
-
-color:#333333;
-
-margin-bottom:18px;
-
-}
-
-.company{
-
-font-size:13px;
-
-letter-spacing:3px;
-
-color:#9B7A1D;
-
-margin-bottom:20px;
-
-}
-
-.line{
-
-width:180px;
-height:4px;
-
-margin:0 auto;
-
-background:
-linear-gradient(
-90deg,
-#C99728,
-#F2D17C
-);
-
-border-radius:999px;
-
-}
-
-.grid{
-
-display:grid;
-
-grid-template-columns:1fr 1fr;
-
-gap:16px;
-
-margin-top:40px;
-
-}
-
-.card{
-
-border:1px solid #D9E2E8;
-
-border-radius:18px;
-
-padding:18px;
-
-background:#F7F9FB;
-
-}
-
-.label{
-
-font-size:11px;
-
-font-weight:bold;
-
-letter-spacing:1px;
-
-text-transform:uppercase;
-
-color:#66737C;
-
-margin-bottom:8px;
-
-}
-
-.value{
-
-font-size:18px;
-
-font-weight:bold;
-
-line-height:1.5;
-
-color:#111111;
-
-word-break:break-word;
-
-}
-
-a{
-
-color:#004C99;
-
-text-decoration:none;
-
-}
-
-.footer{
-
-margin-top:35px;
-
-font-size:11px;
-
-text-align:center;
-
-color:#777777;
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-<div class="header">
+<div style="text-align:center;margin-bottom:35px;">
 
 <img
-class="logo"
-src="https://github.com/beshirssalem-commits/rasco-signature-images/blob/main/ChatGPT%20Image%2029%20%D9%85%D8%A7%D9%8A%D9%88%202026%D8%8C%2001_50_09%20%D8%B5.png?raw=true">
+src="https://github.com/beshirssalem-commits/rasco-signature-images/blob/main/ChatGPT%20Image%2029%20%D9%85%D8%A7%D9%8A%D9%88%202026%D8%8C%2001_50_09%20%D8%B5.png?raw=true"
+style="width:120px;margin-bottom:18px;">
 
-<div class="name">
+<div style="
+font-size:42px;
+font-weight:bold;
+color:#111111;
+margin-bottom:10px;
+">
+
 Beshir S. Salem
+
 </div>
 
-<div class="position">
+<div style="
+font-size:20px;
+color:#333333;
+margin-bottom:18px;
+">
+
 Instrumentation & Control Division Head / ACT
+
 </div>
 
-<div class="company">
+<div style="
+font-size:13px;
+letter-spacing:3px;
+color:#9B7A1D;
+margin-bottom:20px;
+">
+
 RAS LANUF OIL & GAS PROCESSING COMPANY
-</div>
-
-<div class="line"></div>
 
 </div>
 
-<div class="grid">
-
-<div class="card">
-
-<div class="label">Email</div>
-
-<div class="value">
-
-<a href="mailto:beshir8147@raslanuf.ly">
-beshir8147@raslanuf.ly
-</a>
+<div style="
+width:180px;
+height:4px;
+margin:0 auto;
+border-radius:999px;
+background:linear-gradient(90deg,#C99728,#F2D17C);
+"></div>
 
 </div>
 
-</div>
+<div style="
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:16px;
+">
 
-<div class="card">
-
-<div class="label">Internal Phone</div>
-
-<div class="value">
-21596 / 21703
-</div>
-
-</div>
-
-<div class="card">
-
-<div class="label">Mobile</div>
-
-<div class="value">
-
-<a href="tel:+218914860116">
-+218 91 4860116
-</a>
+${createCard('Email','beshir8147@raslanuf.ly')}
+${createCard('Internal Phone','21596 / 21703')}
+${createCard('Mobile','+218 91 4860116')}
+${createCard('WhatsApp','Chat on WhatsApp')}
+${createCard('Website','Official Company Website')}
+${createCard('Facebook','RASCO Official Facebook')}
+${createCard('Location','Open Refinery Location')}
 
 </div>
 
-</div>
-
-<div class="card">
-
-<div class="label">WhatsApp</div>
-
-<div class="value">
-
-<a href="https://wa.me/218914860116">
-Chat on WhatsApp
-</a>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<div class="label">Website</div>
-
-<div class="value">
-
-<a href="https://raslanuf.ly/en/home/">
-Official Company Website
-</a>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<div class="label">Facebook</div>
-
-<div class="value">
-
-<a href="https://www.facebook.com/raslanufcompany/">
-RASCO Official Facebook
-</a>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<div class="label">Location</div>
-
-<div class="value">
-
-<a href="https://maps.app.goo.gl/MDhiyePByczoVtNz9">
-Open Refinery Location
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="footer">
+<div style="
+margin-top:35px;
+font-size:11px;
+text-align:center;
+color:#777777;
+">
 
 RASCO Executive Engineering Contact Hub • Libya
 
 </div>
 
-</body>
-
-</html>
-
 `;
 
-printWindow.document.write(content);
+exportDiv.style.position='fixed';
+exportDiv.style.left='-99999px';
 
-printWindow.document.close();
+document.body.appendChild(exportDiv);
 
-printWindow.focus();
+/* ===================================================== */
+/* RENDER TO CANVAS */
+/* ===================================================== */
 
-setTimeout(()=>{
+const canvas=await html2canvas(exportDiv,{
 
-printWindow.print();
+scale:3,
+backgroundColor:'#FFFFFF',
+useCORS:true
 
-},700);
+});
+
+/* ===================================================== */
+/* CREATE PDF */
+/* ===================================================== */
+
+const { jsPDF } = window.jspdf;
+
+const pdf=new jsPDF({
+
+orientation:'portrait',
+unit:'pt',
+format:'a4'
+
+});
+
+const pdfWidth=595.28;
+
+const imgWidth=pdfWidth-40;
+
+const imgHeight=canvas.height*imgWidth/canvas.width;
+
+/* ===================================================== */
+/* ADD IMAGE */
+/* ===================================================== */
+
+pdf.addImage(
+
+canvas.toDataURL('image/jpeg',1.0),
+'JPEG',
+20,
+20,
+imgWidth,
+imgHeight
+
+);
+
+/* ===================================================== */
+/* SAVE DIRECTLY */
+/* ===================================================== */
+
+pdf.save('RASCO_Executive_Contact.pdf');
+
+/* ===================================================== */
+/* CLEANUP */
+/* ===================================================== */
+
+document.body.removeChild(exportDiv);
+
+}
+
+/* ===================================================== */
+/* CARD TEMPLATE */
+/* ===================================================== */
+
+function createCard(label,value){
+
+return `
+
+<div style="
+border:1px solid #D9E2E8;
+border-radius:18px;
+padding:18px;
+background:#F7F9FB;
+min-height:95px;
+">
+
+<div style="
+font-size:11px;
+font-weight:bold;
+letter-spacing:1px;
+text-transform:uppercase;
+color:#66737C;
+margin-bottom:8px;
+">
+
+${label}
+
+</div>
+
+<div style="
+font-size:18px;
+font-weight:bold;
+line-height:1.5;
+color:#111111;
+word-break:break-word;
+">
+
+${value}
+
+</div>
+
+</div>
+
+`;
 
 }
 
 </script>
 
 </body>
-
 </html>

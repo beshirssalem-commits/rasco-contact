@@ -13,6 +13,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+<!-- jsPDF -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <style>
@@ -27,19 +28,13 @@ padding:0;
 box-sizing:border-box;
 }
 
-html{
-scroll-behavior:smooth;
-}
-
 body{
 
 font-family:'Inter',sans-serif;
 
+background:#071018;
+
 min-height:100vh;
-
-overflow-x:hidden;
-
-position:relative;
 
 display:flex;
 justify-content:center;
@@ -47,9 +42,11 @@ align-items:center;
 
 padding:30px;
 
+overflow-x:hidden;
+
 color:#FFFFFF;
 
-background:#071018;
+position:relative;
 
 }
 
@@ -68,122 +65,25 @@ background:
 
 linear-gradient(
 135deg,
-rgba(3,8,12,0.18),
-rgba(3,8,12,0.24),
-rgba(3,8,12,0.32)
+rgba(0,0,0,0.18),
+rgba(0,0,0,0.30)
 ),
 
 url('https://github.com/beshirssalem-commits/rasco-signature-images/blob/main/29303239-73be-47bd-90dc-e528d7d6c6fe.png?raw=true');
 
 background-size:cover;
-background-position:center center;
-background-repeat:no-repeat;
+background-position:center;
 
 filter:
-brightness(1.30)
-contrast(1.12)
-saturate(1.15);
-
-z-index:-5;
-
-transform:scale(1.01);
-
-}
-
-/* ===================================================== */
-/* OVERLAY */
-/* ===================================================== */
-
-body::after{
-
-content:"";
-
-position:fixed;
-inset:0;
-
-background:
-
-radial-gradient(circle at top left,
-rgba(255,190,90,0.08),
-transparent 28%),
-
-radial-gradient(circle at bottom right,
-rgba(19,152,96,0.10),
-transparent 32%),
-
-linear-gradient(
-to bottom,
-rgba(0,0,0,0.04),
-rgba(0,0,0,0.16)
-);
-
-z-index:-4;
-
-}
-
-/* ===================================================== */
-/* PARTICLES */
-/* ===================================================== */
-
-.particles{
-
-position:fixed;
-inset:0;
-
-pointer-events:none;
-
-z-index:-3;
-
-background-image:
-radial-gradient(rgba(255,255,255,0.16) 1px, transparent 1px);
-
-background-size:42px 42px;
-
-opacity:0.14;
-
-animation:particlesMove 40s linear infinite;
-
-}
-
-@keyframes particlesMove{
-
-0%{
-transform:translateY(0px);
-}
-
-100%{
-transform:translateY(-120px);
-}
-
-}
-
-/* ===================================================== */
-/* BACKGROUND LOGO */
-/* ===================================================== */
-
-.logo-bg{
-
-position:fixed;
-
-top:50%;
-left:50%;
-
-transform:translate(-50%,-50%);
-
-width:70vw;
-max-width:900px;
-
-opacity:0.05;
+brightness(1.28)
+contrast(1.12);
 
 z-index:-2;
 
-filter:
-drop-shadow(0 0 80px rgba(0,0,0,0.55));
-
 }
 
 /* ===================================================== */
-/* MAIN CONTAINER */
+/* CONTAINER */
 /* ===================================================== */
 
 .container{
@@ -196,46 +96,15 @@ padding:50px;
 border-radius:34px;
 
 background:
-rgba(6,14,20,0.30);
+rgba(6,14,20,0.36);
 
-backdrop-filter:blur(6px);
+backdrop-filter:blur(10px);
 
 border:
-1px solid rgba(255,255,255,0.08);
+1px solid rgba(255,255,255,0.10);
 
 box-shadow:
-0 25px 80px rgba(0,0,0,0.22);
-
-position:relative;
-
-overflow:hidden;
-
-}
-
-/* ===================================================== */
-/* TOP GOLD LINE */
-/* ===================================================== */
-
-.container::before{
-
-content:"";
-
-position:absolute;
-
-top:0;
-left:-20%;
-
-width:140%;
-height:2px;
-
-background:
-
-linear-gradient(
-90deg,
-transparent,
-rgba(255,215,120,0.95),
-transparent
-);
+0 30px 80px rgba(0,0,0,0.30);
 
 }
 
@@ -247,48 +116,24 @@ transparent
 
 text-align:center;
 
-margin-bottom:42px;
+margin-bottom:40px;
 
 }
 
-.header-brand{
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-gap:16px;
-
-margin-bottom:24px;
-
-flex-wrap:wrap;
-
-}
-
-.header-mini-logo{
-
-width:60px;
-height:60px;
-
-object-fit:contain;
-
-}
-
-.small-logo{
+.logo{
 
 width:150px;
 
+margin-bottom:24px;
+
 filter:
-drop-shadow(0 0 25px rgba(255,215,120,0.28))
-drop-shadow(0 12px 35px rgba(0,0,0,0.45));
+drop-shadow(0 12px 30px rgba(0,0,0,0.40));
 
 }
 
 .name{
 
-margin-top:26px;
-
-font-size:clamp(42px,6vw,82px);
+font-size:clamp(40px,6vw,80px);
 
 font-weight:900;
 
@@ -296,45 +141,40 @@ line-height:1;
 
 letter-spacing:-2px;
 
-text-shadow:
-0 10px 25px rgba(0,0,0,0.42);
-
 }
 
 .position{
 
-margin-top:18px;
+margin-top:16px;
 
 font-size:22px;
 
 font-weight:600;
 
-line-height:1.5;
-
-color:#DCE5EA;
+color:#D7E1E7;
 
 }
 
 .company{
 
-font-size:14px;
+margin-top:20px;
 
-font-weight:700;
+font-size:14px;
 
 letter-spacing:4px;
 
-text-transform:uppercase;
+font-weight:700;
 
-color:#E8C96C;
+color:#E5C46B;
 
 }
 
 .gold-line{
 
-margin:28px auto 0;
-
 width:220px;
 height:4px;
+
+margin:28px auto 0;
 
 border-radius:999px;
 
@@ -388,29 +228,20 @@ border:
 
 text-decoration:none;
 
-transition:0.3s ease;
-
-position:relative;
-
-overflow:hidden;
-
-backdrop-filter:blur(8px);
-
-min-height:110px;
-
 color:#FFFFFF;
+
+transition:0.3s;
+
+backdrop-filter:blur(6px);
 
 }
 
 .contact-card:hover{
 
-transform:translateY(-6px);
+transform:translateY(-5px);
 
 background:
-rgba(255,255,255,0.14);
-
-box-shadow:
-0 20px 40px rgba(0,0,0,0.22);
+rgba(255,255,255,0.15);
 
 }
 
@@ -419,11 +250,11 @@ box-shadow:
 width:60px;
 height:60px;
 
-border-radius:18px;
-
 display:flex;
 justify-content:center;
 align-items:center;
+
+border-radius:18px;
 
 font-size:26px;
 
@@ -434,9 +265,6 @@ linear-gradient(
 rgba(255,215,120,0.20),
 rgba(19,152,96,0.18)
 );
-
-box-shadow:
-0 10px 20px rgba(0,0,0,0.18);
 
 flex-shrink:0;
 
@@ -452,23 +280,19 @@ letter-spacing:1px;
 
 text-transform:uppercase;
 
-color:#A8B7C0;
+color:#B4C0C7;
 
 }
 
 .value{
 
-margin-top:7px;
+margin-top:6px;
 
 font-size:19px;
 
 font-weight:700;
 
 line-height:1.5;
-
-color:#FFFFFF;
-
-word-break:break-word;
 
 }
 
@@ -481,23 +305,19 @@ word-break:break-word;
 margin-top:42px;
 
 display:flex;
-flex-wrap:wrap;
+justify-content:center;
 
 gap:18px;
 
-justify-content:center;
+flex-wrap:wrap;
 
 }
 
 .btn{
 
-display:inline-flex;
-align-items:center;
-justify-content:center;
-
-gap:12px;
-
 padding:18px 34px;
+
+border:none;
 
 border-radius:20px;
 
@@ -508,10 +328,6 @@ font-weight:800;
 cursor:pointer;
 
 transition:0.3s;
-
-text-decoration:none;
-
-border:none;
 
 }
 
@@ -527,38 +343,44 @@ linear-gradient(
 
 color:#FFFFFF;
 
-box-shadow:
-0 16px 40px rgba(0,0,0,0.28);
-
 }
 
 .btn-primary:hover{
 
-transform:translateY(-4px) scale(1.02);
+transform:translateY(-4px);
 
 }
 
 .btn-secondary{
 
 background:
-rgba(255,255,255,0.08);
+rgba(255,255,255,0.10);
 
 border:
-1px solid rgba(255,255,255,0.12);
+1px solid rgba(255,255,255,0.10);
 
 color:#FFFFFF;
 
+text-decoration:none;
+
+display:flex;
+align-items:center;
+
 }
+
+/* ===================================================== */
+/* FOOTER */
+/* ===================================================== */
 
 .footer{
 
-margin-top:36px;
+margin-top:38px;
+
+text-align:center;
 
 font-size:12px;
 
 letter-spacing:2px;
-
-text-align:center;
 
 color:rgba(255,255,255,0.62);
 
@@ -582,16 +404,17 @@ align-items:flex-start;
 
 padding:24px 18px;
 
-border-radius:24px;
-
-background:
-rgba(6,14,20,0.42);
-
 }
 
 .contact-list{
 
 grid-template-columns:1fr;
+
+}
+
+.logo{
+
+width:110px;
 
 }
 
@@ -615,28 +438,18 @@ letter-spacing:2px;
 
 }
 
-.small-logo{
-
-width:110px;
-
-}
-
-.header-mini-logo{
-
-width:44px;
-height:44px;
-
-}
-
-.btn{
-
-width:100%;
-
-}
-
 .button-row{
 
 flex-direction:column;
+
+}
+
+.btn,
+.btn-secondary{
+
+width:100%;
+
+justify-content:center;
 
 }
 
@@ -648,32 +461,12 @@ flex-direction:column;
 
 <body>
 
-<div class="particles"></div>
-
-<img
-class="logo-bg"
-src="https://github.com/beshirssalem-commits/rasco-signature-images/blob/main/ChatGPT%20Image%2029%20%D9%85%D8%A7%D9%8A%D9%88%202026%D8%8C%2001_50_09%20%D8%B5.png?raw=true"
-alt="RASCO Logo">
-
 <div class="container">
 
 <div class="top">
 
-<div class="header-brand">
-
 <img
-class="header-mini-logo"
-src="https://github.com/beshirssalem-commits/rasco-signature-images/blob/main/ChatGPT%20Image%2029%20%D9%85%D8%A7%D9%8A%D9%88%202026%D8%8C%2001_50_09%20%D8%B5.png?raw=true"
-alt="RASCO Logo">
-
-<div class="company">
-RAS LANUF OIL & GAS PROCESSING COMPANY
-</div>
-
-</div>
-
-<img
-class="small-logo"
+class="logo"
 src="https://github.com/beshirssalem-commits/rasco-signature-images/blob/main/ChatGPT%20Image%2029%20%D9%85%D8%A7%D9%8A%D9%88%202026%D8%8C%2001_50_09%20%D8%B5.png?raw=true"
 alt="RASCO Logo">
 
@@ -683,6 +476,10 @@ Beshir S. Salem
 
 <div class="position">
 Instrumentation Division Head / ACT
+</div>
+
+<div class="company">
+RAS LANUF OIL & GAS PROCESSING COMPANY
 </div>
 
 <div class="gold-line"></div>
@@ -698,7 +495,9 @@ href="mailto:beshir8147@raslanuf.ly">
 
 <div>
 
-<div class="label">Email</div>
+<div class="label">
+Email
+</div>
 
 <div class="value">
 beshir8147@raslanuf.ly
@@ -714,7 +513,9 @@ beshir8147@raslanuf.ly
 
 <div>
 
-<div class="label">Internal Phone</div>
+<div class="label">
+Internal Phone
+</div>
 
 <div class="value">
 21596 / 21703
@@ -731,7 +532,9 @@ href="tel:+218914860116">
 
 <div>
 
-<div class="label">Mobile</div>
+<div class="label">
+Mobile
+</div>
 
 <div class="value">
 +218 91 4860116
@@ -749,7 +552,9 @@ target="_blank">
 
 <div>
 
-<div class="label">WhatsApp</div>
+<div class="label">
+WhatsApp
+</div>
 
 <div class="value">
 Chat on WhatsApp
@@ -767,7 +572,9 @@ target="_blank">
 
 <div>
 
-<div class="label">Website</div>
+<div class="label">
+Website
+</div>
 
 <div class="value">
 Official Company Website
@@ -785,7 +592,9 @@ target="_blank">
 
 <div>
 
-<div class="label">Facebook</div>
+<div class="label">
+Facebook
+</div>
 
 <div class="value">
 RASCO Official Facebook
@@ -803,7 +612,9 @@ target="_blank">
 
 <div>
 
-<div class="label">Location</div>
+<div class="label">
+Location
+</div>
 
 <div class="value">
 Open Company Location
@@ -847,76 +658,20 @@ RASCO Executive Engineering Contact Hub • Libya
 <script>
 
 /* ===================================================== */
-/* LOAD IMAGE */
-/* ===================================================== */
-
-async function loadImageAsBase64(url){
-
-return new Promise((resolve,reject)=>{
-
-const img=new Image();
-
-img.crossOrigin='anonymous';
-
-img.onload=function(){
-
-const canvas=document.createElement('canvas');
-
-canvas.width=img.width;
-canvas.height=img.height;
-
-const ctx=canvas.getContext('2d');
-
-ctx.drawImage(img,0,0);
-
-resolve(canvas.toDataURL('image/png'));
-
-};
-
-img.onerror=reject;
-
-img.src=url;
-
-});
-
-}
-
-/* ===================================================== */
 /* EXPORT PDF */
 /* ===================================================== */
 
-async function downloadPDF(){
+function downloadPDF(){
 
 const { jsPDF } = window.jspdf;
 
-const pdf=new jsPDF({
+const pdf = new jsPDF({
 
 orientation:'portrait',
 unit:'pt',
 format:'a4'
 
 });
-
-/* ===================================================== */
-/* LOAD LOGO */
-/* ===================================================== */
-
-const logo=await loadImageAsBase64(
-'https://github.com/beshirssalem-commits/rasco-signature-images/blob/main/ChatGPT%20Image%2029%20%D9%85%D8%A7%D9%8A%D9%88%202026%D8%8C%2001_50_09%20%D8%B5.png?raw=true'
-);
-
-/* ===================================================== */
-/* ADD LOGO */
-/* ===================================================== */
-
-pdf.addImage(
-logo,
-'PNG',
-242,
-28,
-110,
-110
-);
 
 /* ===================================================== */
 /* HEADER */
@@ -926,12 +681,10 @@ pdf.setFont('helvetica','bold');
 
 pdf.setFontSize(28);
 
-pdf.setTextColor(20);
-
 pdf.text(
 'Beshir S. Salem',
 297,
-168,
+80,
 {align:'center'}
 );
 
@@ -942,7 +695,7 @@ pdf.setTextColor(70);
 pdf.text(
 'Instrumentation Division Head / ACT',
 297,
-192,
+105,
 {align:'center'}
 );
 
@@ -953,7 +706,7 @@ pdf.setTextColor(156,122,29);
 pdf.text(
 'RAS LANUF OIL & GAS PROCESSING COMPANY',
 297,
-214,
+125,
 {align:'center'}
 );
 
@@ -965,7 +718,7 @@ pdf.setDrawColor(201,151,40);
 
 pdf.setLineWidth(2);
 
-pdf.line(205,228,390,228);
+pdf.line(205,145,390,145);
 
 /* ===================================================== */
 /* CONTACTS */
@@ -1017,7 +770,7 @@ link:'https://maps.app.goo.gl/MDhiyePByczoVtNz9'
 ];
 
 let x=40;
-let y=260;
+let y=180;
 
 cards.forEach((card,index)=>{
 
@@ -1034,8 +787,6 @@ y,
 10,
 'FD'
 );
-
-pdf.setFont('helvetica','bold');
 
 pdf.setFontSize(9);
 
@@ -1060,10 +811,10 @@ y+44
 if(card.link){
 
 pdf.link(
-x+10,
-y+10,
-220,
-50,
+x,
+y,
+245,
+74,
 {
 url:card.link
 }

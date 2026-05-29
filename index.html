@@ -68,9 +68,9 @@ background:
 
 linear-gradient(
 135deg,
-rgba(4,10,15,0.35),
-rgba(4,10,15,0.42),
-rgba(6,16,24,0.48)
+rgba(4,10,15,0.32),
+rgba(4,10,15,0.40),
+rgba(6,16,24,0.45)
 ),
 
 url('https://github.com/beshirssalem-commits/rasco-signature-images/blob/main/Screenshot%202026-05-28%20225633.png?raw=true');
@@ -82,7 +82,7 @@ z-index:-5;
 
 filter:
 contrast(1.08)
-brightness(1.15)
+brightness(1.18)
 saturate(1.15);
 
 transform:scale(1.02);
@@ -90,7 +90,7 @@ transform:scale(1.02);
 }
 
 /* ===================================================== */
-/* LIGHT EFFECT */
+/* LIGHT EFFECTS */
 /* ===================================================== */
 
 body::after{
@@ -103,15 +103,15 @@ inset:0;
 background:
 
 radial-gradient(circle at top left,
-rgba(255,190,90,0.14),
-transparent 32%),
+rgba(255,190,90,0.12),
+transparent 30%),
 
 radial-gradient(circle at bottom right,
 rgba(19,152,96,0.14),
 transparent 30%),
 
 radial-gradient(circle at center,
-rgba(255,255,255,0.04),
+rgba(255,255,255,0.03),
 transparent 60%);
 
 z-index:-4;
@@ -155,7 +155,7 @@ transform:translateY(-120px);
 }
 
 /* ===================================================== */
-/* BACKGROUND LOGO */
+/* LARGE BACKGROUND LOGO */
 /* ===================================================== */
 
 .logo-bg{
@@ -170,7 +170,7 @@ transform:translate(-50%,-50%);
 width:70vw;
 max-width:900px;
 
-opacity:0.06;
+opacity:0.05;
 
 z-index:-2;
 
@@ -415,7 +415,7 @@ gap:18px;
 .contact-card{
 
 display:flex;
-align-items:center;
+align-items:flex-start;
 
 gap:18px;
 
@@ -521,6 +521,8 @@ rgba(19,152,96,0.18)
 box-shadow:
 0 10px 20px rgba(0,0,0,0.20);
 
+flex-shrink:0;
+
 }
 
 /* ===================================================== */
@@ -553,7 +555,7 @@ font-size:19px;
 
 font-weight:700;
 
-line-height:1.4;
+line-height:1.5;
 
 color:#FFFFFF;
 
@@ -562,7 +564,7 @@ word-break:break-word;
 }
 
 /* ===================================================== */
-/* BUTTON ROW */
+/* BUTTONS */
 /* ===================================================== */
 
 .button-row{
@@ -823,106 +825,24 @@ margin-top:28px;
 }
 
 /* ===================================================== */
-/* PDF MODE */
-/* ===================================================== */
-
-.pdf-mode{
-
-background:#FFFFFF !important;
-
-color:#000000 !important;
-
-}
-
-.pdf-mode .contact-card{
-
-background:#F4F6F8 !important;
-
-border:1px solid #D9E2E8 !important;
-
-}
-
-.pdf-mode .name,
-.pdf-mode .position,
-.pdf-mode .company,
-.pdf-mode .value,
-.pdf-mode .label{
-
-color:#000000 !important;
-
-}
-
-/* ===================================================== */
 /* PRINT */
 /* ===================================================== */
 
 @media print{
 
 body{
-
-background:#FFFFFF !important;
-
-padding:0;
-
+background:#FFFFFF;
 }
 
 body::before,
 body::after,
 .particles,
 .logo-bg{
-
-display:none !important;
-
-}
-
-.container{
-
-background:#FFFFFF !important;
-
-box-shadow:none !important;
-
-border:none !important;
-
-max-width:100%;
-
-padding:20px;
-
-}
-
-.contact-card{
-
-background:#F5F7F9 !important;
-
-border:1px solid #D8E0E5 !important;
-
-color:#000000 !important;
-
-break-inside:avoid;
-
-}
-
-.value,
-.label,
-.position,
-.company,
-.name{
-
-color:#000000 !important;
-
+display:none;
 }
 
 .btn{
-
-display:none !important;
-
-}
-
-a{
-
-color:#004C99 !important;
-
-text-decoration:none !important;
-
+display:none;
 }
 
 }
@@ -983,9 +903,7 @@ href="mailto:beshir8147@raslanuf.ly">
 
 <div>
 
-<div class="label">
-Email
-</div>
+<div class="label">Email</div>
 
 <div class="value">
 beshir8147@raslanuf.ly
@@ -1001,9 +919,7 @@ beshir8147@raslanuf.ly
 
 <div>
 
-<div class="label">
-Internal Phone
-</div>
+<div class="label">Internal Phone</div>
 
 <div class="value">
 21596 / 21703
@@ -1020,9 +936,7 @@ href="tel:+218914860116">
 
 <div>
 
-<div class="label">
-Mobile
-</div>
+<div class="label">Mobile</div>
 
 <div class="value">
 +218 91 4860116
@@ -1039,9 +953,7 @@ href="https://wa.me/218914860116">
 
 <div>
 
-<div class="label">
-WhatsApp
-</div>
+<div class="label">WhatsApp</div>
 
 <div class="value">
 Chat on WhatsApp
@@ -1058,9 +970,7 @@ href="https://raslanuf.ly/en/home/">
 
 <div>
 
-<div class="label">
-Website
-</div>
+<div class="label">Website</div>
 
 <div class="value">
 Official Company Website
@@ -1077,9 +987,7 @@ href="https://www.facebook.com/raslanufcompany/">
 
 <div>
 
-<div class="label">
-Facebook
-</div>
+<div class="label">Facebook</div>
 
 <div class="value">
 RASCO Official Facebook
@@ -1096,12 +1004,10 @@ href="https://maps.app.goo.gl/MDhiyePByczoVtNz9">
 
 <div>
 
-<div class="label">
-Location
-</div>
+<div class="label">Location</div>
 
 <div class="value">
-Open Company Location
+Open Refinery Location
 </div>
 
 </div>
@@ -1145,11 +1051,148 @@ async function downloadPDF(){
 
 const element=document.getElementById('contact-page');
 
-element.classList.add('pdf-mode');
+/* ===================================================== */
+/* CREATE PDF CLONE */
+/* ===================================================== */
+
+const clone=element.cloneNode(true);
+
+/* ===================================================== */
+/* PDF BASE STYLE */
+/* ===================================================== */
+
+clone.style.background="#FFFFFF";
+clone.style.color="#000000";
+clone.style.width="794px";
+clone.style.padding="40px";
+clone.style.borderRadius="0";
+clone.style.boxShadow="none";
+clone.style.border="none";
+
+/* ===================================================== */
+/* REMOVE BUTTONS */
+/* ===================================================== */
+
+const buttonRow=clone.querySelector('.button-row');
+
+if(buttonRow){
+
+buttonRow.remove();
+
+}
+
+/* ===================================================== */
+/* REMOVE BIG BACKGROUND LOGO */
+/* ===================================================== */
+
+const bgLogo=clone.querySelector('.logo-bg');
+
+if(bgLogo){
+
+bgLogo.remove();
+
+}
+
+/* ===================================================== */
+/* PDF CONTACT CARDS */
+/* ===================================================== */
+
+clone.querySelectorAll('.contact-card').forEach(card=>{
+
+card.style.background="#F7F9FB";
+card.style.border="1px solid #D8E0E5";
+card.style.boxShadow="none";
+card.style.backdropFilter="none";
+card.style.minHeight="90px";
+card.style.pageBreakInside="avoid";
+
+});
+
+/* ===================================================== */
+/* PDF TEXT COLORS */
+/* ===================================================== */
+
+clone.querySelectorAll('.value').forEach(el=>{
+
+el.style.color="#000000";
+el.style.fontSize="18px";
+el.style.fontWeight="700";
+
+});
+
+clone.querySelectorAll('.label').forEach(el=>{
+
+el.style.color="#5B6872";
+
+});
+
+clone.querySelectorAll('.name').forEach(el=>{
+
+el.style.color="#000000";
+el.style.fontSize="54px";
+el.style.textShadow="none";
+
+});
+
+clone.querySelectorAll('.position').forEach(el=>{
+
+el.style.color="#222222";
+el.style.fontSize="20px";
+
+});
+
+clone.querySelectorAll('.company').forEach(el=>{
+
+el.style.color="#9B7A1D";
+el.style.fontSize="13px";
+
+});
+
+clone.querySelectorAll('.footer').forEach(el=>{
+
+el.style.color="#666666";
+
+});
+
+/* ===================================================== */
+/* KEEP MAIN HEADER LOGO */
+/* ===================================================== */
+
+const mainLogo=clone.querySelector('.small-logo');
+
+mainLogo.style.width="130px";
+mainLogo.style.filter="none";
+
+/* ===================================================== */
+/* PDF GRID */
+/* ===================================================== */
+
+const contactList=clone.querySelector('.contact-list');
+
+contactList.style.gridTemplateColumns="1fr 1fr";
+contactList.style.gap="14px";
+
+/* ===================================================== */
+/* TEMP CONTAINER */
+/* ===================================================== */
+
+const temp=document.createElement('div');
+
+temp.style.position='fixed';
+temp.style.left='-99999px';
+temp.style.top='0';
+
+temp.appendChild(clone);
+
+document.body.appendChild(temp);
+
+/* ===================================================== */
+/* EXPORT */
+/* ===================================================== */
 
 const opt={
 
-margin:[6,6,6,6],
+margin:[4,4,4,4],
 
 filename:'RASCO_Executive_Contact.pdf',
 
@@ -1159,13 +1202,13 @@ quality:1
 },
 
 html2canvas:{
-scale:4,
+scale:3,
 useCORS:true,
-letterRendering:true
+backgroundColor:"#FFFFFF"
 },
 
 jsPDF:{
-unit:'mm',
+unit:'pt',
 format:'a4',
 orientation:'portrait'
 },
@@ -1176,9 +1219,13 @@ mode:['avoid-all']
 
 };
 
-await html2pdf().set(opt).from(element).save();
+await html2pdf().set(opt).from(clone).save();
 
-element.classList.remove('pdf-mode');
+/* ===================================================== */
+/* CLEANUP */
+/* ===================================================== */
+
+document.body.removeChild(temp);
 
 }
 
